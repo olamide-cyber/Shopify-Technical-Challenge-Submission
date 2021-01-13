@@ -10,27 +10,40 @@ function App() {
 
   const [searchTerm, setSearchTerm] = useState('');
 
+  const [isSearchingMovies, setIsSearchingMovies] = useState(false);
+
   const search = (searchTerm) => {
     setSearchTerm(searchTerm);
+    setIsSearchingMovies(true);
+
     Omdb.search(searchTerm).then(searchResults => {
       setSearchResults(searchResults);
-      console.log("Results>>", searchResults)
-    }).catch(message => {
-      console.log('Error message>>', message.Error);
+      setIsSearchingMovies(false);
+    }).catch(error => {
+      window.alert(`${error}, please search for a valid movie.`);
+      setIsSearchingMovies(false);
     })
   }
 
-  const [nominatedMovies, setNominatedMovies] = useState([]);
+const [nominatedMovies, setNominatedMovies] = useState(() => {
+  const movies = localStorage.getItem('nominatedMovies');
+    if (movies) {
+      return JSON.parse(movies);
+    }
+    return [];
+});
 
   const addMovie = (movie) => {
-    let movies = nominatedMovies;
-    if (movies.find(savedMovie => savedMovie.id === movie.id)) {
+    if (nominatedMovies.length === 5) {
+      window.alert('Enough movies to be nominated, Thanks!');
+      return;
+    }
+    if (nominatedMovies.find(savedMovie => savedMovie.id === movie.id)) {
       return;
     } else {
-      movies.push(movie);
-      console.log("movies>>", movies);
+      const movies = [...nominatedMovies, movie];
       setNominatedMovies(movies);
-      console.log("Nominated", nominatedMovies)
+      localStorage.setItem('nominatedMovies', JSON.stringify(movies));
     }
   }
 
@@ -38,6 +51,7 @@ function App() {
     let movies = nominatedMovies;
     movies = movies.filter(currentMovie => currentMovie.id !== movie.id);
     setNominatedMovies(movies);
+    localStorage.setItem('nominatedMovies', JSON.stringify(movies));
   }
 
   return (
@@ -50,6 +64,7 @@ function App() {
                 onAdd={addMovie}
                 nominatedMovies={nominatedMovies}
                 searchTerm={searchTerm}
+                isSearching={isSearchingMovies}
             />
             <Nominations
                 nominatedMovies={nominatedMovies}

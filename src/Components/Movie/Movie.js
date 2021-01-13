@@ -30,10 +30,7 @@ function Movie(props) {
                 <ul>
                     <li>{title} ({year})</li>
                 </ul>
-                {/* {renderAction()} */}
-                {
-                    props.isRemoval ? (<button className="Movie-action" onClick={removeMovie}>Remove</button>) : (<button disabled={props.disabled} className="Movie-action" onClick={addMovie}>Nominate</button>)
-                }
+                {renderAction()}
             </div>
         </div>
     );

@@ -1,8 +1,8 @@
 .SearchBar {
-    width: 820px;
+    width: 100%;
     background-color: white;
     height: 90px;
-    margin-left: 110px;
+    /* margin-left: 110px; */
     margin-top: 15px;
     border: 1px solid rgb(218, 212, 212);
     border-radius: 3px;
@@ -20,19 +20,20 @@
 }
 
 .movieTitle {
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .search-wrapper {
     display: flex;
-    flex: 1;
+    margin-top: 12px;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
 }
 
 .search-input-wrapper {
-    width: 75%;
-    height: 35px;
-    margin-right: 12px;
-    margin-top: 12px;
+    flex: 1;
+    height: 100%;
     font-size: 16px;
     border: 1px solid #808080bf;
     display: flex;
@@ -40,6 +41,7 @@
     padding-left: 8px;
     padding-right: 8px;
     border-radius: 3px;
+    box-sizing: border-box;
 }
 
 .searchInput {
@@ -60,8 +62,9 @@
 }
 
 .searchButton {
-    padding: 10px 35px;
-    margin-left: 18px;
+    height: 100%;
+    padding: 0 35px;
+    margin-left: 16px;
     border-radius: 5px;
     background-color: #236ff3;
     text-align: center;
@@ -71,8 +74,6 @@
     color: rgb(255, 255, 255);
     font-weight: 500;
     outline: none;
-    position: relative;
-    top: 2px;
 }
 
 .searchButton:hover {

@@ -1,18 +1,22 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 50px 100px;
+}
+
 .App-header {
   padding: 8px;
   font-size: 30px;
-  margin-top: 30px;
-  margin-left: 100px;
   font-weight: bold;
 }
 
 .Grid {
-  height: 400px;
-  width: 1025px;
+  min-height: 400px;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 25px;
-  margin-left: 110px;
   margin-top: 20px;
 }
 

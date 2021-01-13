@@ -17,7 +17,7 @@ function SearchBar(props) {
     return (
         <div className="SearchBar">
             <form className="form" onSubmit={search} >
-                <div className="movieTitle">Movie Title</div>
+                <h2 className="movieTitle">Movie Title</h2>
                 <div className="search-wrapper">
                     <div className="search-input-wrapper">
                         <img src={searchLogo} alt="search-logo" />
