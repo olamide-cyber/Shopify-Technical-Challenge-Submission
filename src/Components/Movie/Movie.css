@@ -7,11 +7,26 @@
     margin-bottom: 4px;
 }
 
-.movie-results {
+.Movie-results {
     display: flex;
     align-items: center;
     flex: 1;
     margin-top: 16px;
+    background-color: #dce7fa59;
+    border-radius: 4px;
+    box-shadow: 1px 1px 7px #7d9dd37d;
+    padding: 20px;
+}
+
+.Movie-results:hover {
+    box-shadow: none;
+    transition: all .2s ease-in-out;
+}
+
+.Movie-image {
+    height: 200px;
+    width: 150px;
+    border-radius: 4px;
 }
 
 .Movie-action {
@@ -44,4 +59,20 @@
     background-color: lightgray;
     cursor: not-allowed;
     color:#464444
+}
+
+@media only screen and (max-width: 480px) {
+    .Movie-results {
+        padding: 8px;
+    }
+
+    .Movie-image {
+        width: 100px;
+        height: 120px;
+    }
+
+    .Movie-action {
+        padding: 9px 8px;
+        margin-left: 7px; 
+    }
 }

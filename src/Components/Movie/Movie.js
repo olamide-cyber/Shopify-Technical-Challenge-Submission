@@ -5,6 +5,7 @@ import './Movie.css';
 function Movie(props) {
     const title = props.movie.title;
     const year = props.movie.year;
+    const img = props.movie.img;
 
     function addMovie() {
         let movie = props.movie;
@@ -26,7 +27,8 @@ function Movie(props) {
 
     return(
         <div className="Movie">
-            <div className="movie-results">
+            <div className="Movie-results">
+                <img className="Movie-image" src={img} alt="movie-img" />
                 <ul>
                     <li>{title} ({year})</li>
                 </ul>

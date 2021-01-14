@@ -8,7 +8,8 @@ const Omdb = {
                 return{
                     id: search.imdbID,
                     title: search.Title,
-                    year: search.Year
+                    year: search.Year,
+                    img: search.Poster
                 }
             })
             return results;

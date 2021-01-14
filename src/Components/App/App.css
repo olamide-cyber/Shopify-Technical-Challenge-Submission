@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 50px 100px;
+  padding: 50px;
 }
 
 .App-header {
@@ -20,3 +20,21 @@
   margin-top: 20px;
 }
 
+
+@media only screen and (max-width: 1040px) {
+  .App {
+    padding: 30px;
+  }
+
+  .Grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .App {
+    padding: 10px;
+  }
+}

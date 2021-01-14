@@ -25,6 +25,8 @@ function App() {
     })
   }
 
+  console.log('Search Results>>', searchResults);
+
 const [nominatedMovies, setNominatedMovies] = useState(() => {
   const movies = localStorage.getItem('nominatedMovies');
     if (movies) {
@@ -35,7 +37,7 @@ const [nominatedMovies, setNominatedMovies] = useState(() => {
 
   const addMovie = (movie) => {
     if (nominatedMovies.length === 5) {
-      window.alert('Enough movies to be nominated, Thanks!');
+      window.alert('You can only nominate five movies, Thanks!');
       return;
     }
     if (nominatedMovies.find(savedMovie => savedMovie.id === movie.id)) {
