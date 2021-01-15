@@ -5,35 +5,38 @@ import SearchResults from "../SearchResults/SearchResults";
 import Nominations from "../Nominations/Nominations";
 import Omdb from "../../util/Omdb";
 
-function App() {
+const App = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   const [searchTerm, setSearchTerm] = useState('');
 
   const [isSearchingMovies, setIsSearchingMovies] = useState(false);
 
+  const [searchError, setSearchError] = useState(null);
+
   const search = (searchTerm) => {
+    if (!searchTerm) return;
+
     setSearchTerm(searchTerm);
     setIsSearchingMovies(true);
 
     Omdb.search(searchTerm).then(searchResults => {
       setSearchResults(searchResults);
       setIsSearchingMovies(false);
+      setSearchError(null);
     }).catch(error => {
-      window.alert(`${error}, please search for a valid movie.`);
+      setSearchError(`${error} Please search for a valid movie.`);
       setIsSearchingMovies(false);
     })
   }
 
-  console.log('Search Results>>', searchResults);
-
-const [nominatedMovies, setNominatedMovies] = useState(() => {
-  const movies = localStorage.getItem('nominatedMovies');
-    if (movies) {
-      return JSON.parse(movies);
-    }
-    return [];
-});
+  const [nominatedMovies, setNominatedMovies] = useState(() => {
+    const movies = localStorage.getItem('nominatedMovies');
+      if (movies) {
+        return JSON.parse(movies);
+      }
+      return [];
+  });
 
   const addMovie = (movie) => {
     if (nominatedMovies.length === 5) {
@@ -59,9 +62,10 @@ const [nominatedMovies, setNominatedMovies] = useState(() => {
   return (
     <div className="App">
         <h1 className="App-header" >The Shoppies</h1>
-        <SearchBar onSearch={search} />
+        <SearchBar className="App-search-bar" onSearch={search} />
         <div className="Grid">
             <SearchResults 
+                searchError={searchError}
                 searchResults={searchResults} 
                 onAdd={addMovie}
                 nominatedMovies={nominatedMovies}

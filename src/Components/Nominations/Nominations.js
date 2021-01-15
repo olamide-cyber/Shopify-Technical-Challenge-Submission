@@ -2,10 +2,10 @@ import React from 'react';
 import './Nominations.css';
 import MovieList from '../MovieList/MovieList';
 
-function Nominations(props) {
+const Nominations = (props) => {
     return(
-        <div className="Nominations">
-            <div className="Nomination-Results">
+        <div className="nominations">
+            <div className="nomination-results">
                 <h2>Nominations</h2>
                 <MovieList 
                     movies={props.nominatedMovies}

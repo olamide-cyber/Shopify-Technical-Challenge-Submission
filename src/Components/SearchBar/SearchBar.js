@@ -1,42 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './SearchBar.css';
 import searchLogo from './icons8-search-24.png';
 
-function SearchBar(props) {
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const search = (event) => {
-        event.preventDefault();
-        props.onSearch(searchTerm);
-    }
+const SearchBar = (props) => {
 
     const handleTermChange = (event) => {
-        setSearchTerm(event.target.value);
-    }
-
+        props.onSearch(event.target.value);
+      }
+  
     return (
-        <div className="SearchBar">
-            <form className="form" onSubmit={search} >
-                <h2 className="movieTitle">Movie Title</h2>
-                <div className="search-wrapper">
-                    <div className="search-input-wrapper">
-                        <img src={searchLogo} alt="search-logo" />
-                        <input 
-                            className="searchInput" 
-                            placeholder="Search for a movie to nominate" 
-                            type="text"
-                            onChange={handleTermChange}
-                        />
-                    </div>
-                    <button 
-                        disabled={searchTerm.length <= 0 ? true : false} 
-                        className="searchButton" 
-                        type="submit"
-                    >
-                        Search
-                    </button>
+        <div className={`search-bar ${props.className}`}>
+            <h2 className="movie-title">Movie Title</h2>
+            <div className="search-wrapper">
+                <div className="search-input-wrapper">
+                    <img src={searchLogo} alt="search-logo" />
+                    <input
+                        className="search-input"
+                        placeholder="Search for a movie to nominate"
+                        type="text"
+                        onChange={handleTermChange}
+                    />
                 </div>
-            </form>
+            </div>
         </div>
     );
 };

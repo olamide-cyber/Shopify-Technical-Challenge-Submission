@@ -1,30 +1,27 @@
-.SearchResults {
+.search-results {
+    padding: 20px;
     background-color: #ffffff;
     border: 1px solid rgb(218, 212, 212);
     border-radius: 3px;
     box-shadow: 0 1px 6px rgb(214, 211, 211);
+    min-height: 400px;
 }
 
-.Results {
-    margin: 20px;
-}
-
-.Results h2 {
+.search-results h2 {
     padding: 6px;
-    margin-bottom: 18px;
     font-weight: bold;
+    font-size: 18px;
 }
 
-@media only screen and (max-width: 1040px) {
-    .SearchResults {
-        margin-bottom: 30px;
-        min-height: 400px;
-    }
+.search-results .spinner {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 480px) {
-    .Results {
-        margin: 0;
-        padding: 8px;
+    .search-results {
+        padding: 16px;
     }
 }

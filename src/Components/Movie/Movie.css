@@ -1,16 +1,11 @@
-.Movie ul {
-    margin-left: 45px;
+.movie p {
+    margin-left: 16px;
+    margin-right: 16px;
 }
 
-.Movie li {
-    padding: 4px;
-    margin-bottom: 4px;
-}
-
-.Movie-results {
+.movie {
     display: flex;
     align-items: center;
-    flex: 1;
     margin-top: 16px;
     background-color: #dce7fa59;
     border-radius: 4px;
@@ -18,20 +13,20 @@
     padding: 20px;
 }
 
-.Movie-results:hover {
+.movie:hover {
     box-shadow: none;
     transition: all .2s ease-in-out;
 }
 
-.Movie-image {
+.movie-image {
     height: 200px;
     width: 150px;
     border-radius: 4px;
+    flex-shrink: 0;
 }
 
-.Movie-action {
+.movie-action {
     padding: 10px 20px;
-    margin-left: 14px;
     border-radius: 5px;
     background-color: #236ff3;
     text-align: center;
@@ -41,38 +36,39 @@
     color: rgb(255, 255, 255);
     font-weight: 500;
     outline: none;
+    margin-left: auto;
 }
 
-.Movie-action:hover {
+.movie-action:hover {
     cursor: pointer;
     background-color: #f1a610;
     transition: all .2s ease-in;
 }
 
-.Movie-action:active {
+.movie-action:active {
     outline: none;
     opacity: 0.7;
 }
 
-.Movie-action:disabled,
-.Movie-action:disabled:hover {
+.movie-action:disabled,
+.movie-action:disabled:hover {
     background-color: lightgray;
     cursor: not-allowed;
     color:#464444
 }
 
 @media only screen and (max-width: 480px) {
-    .Movie-results {
+    .movie {
         padding: 8px;
     }
 
-    .Movie-image {
+    .movie-image {
         width: 100px;
         height: 120px;
     }
 
-    .Movie-action {
+    .movie-action {
         padding: 9px 8px;
-        margin-left: 7px; 
+        margin-left: 7px;
     }
 }

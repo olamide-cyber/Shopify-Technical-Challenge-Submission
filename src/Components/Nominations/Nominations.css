@@ -1,39 +1,24 @@
-.Nominations {
+.nominations {
     background-color: #ffffff;
     border: 1px solid rgb(218, 212, 212);
     border-radius: 3px;
     box-shadow: 0 1px 6px rgb(214, 211, 211);
+    min-height: 400px;
 }
 
-.Nomination-Results {
-    margin: 20px;
+.nomination-results {
+    padding: 20px;
 }
 
-.Nomination-Results h2 {
+.nomination-results h2 {
     padding: 6px;
-    margin-bottom: 18px;
     font-weight: bold;
     font-size: 18px;
-}
-
-.Nomination-Results ul {
-    margin-left: 45px;
-}
-
-.Nomination-Results li {
-    padding: 4px;
-    margin-bottom: 4px;
-}
-
-@media only screen and (max-width: 1040px) {
-    .Nominations {
-        min-height: 400px;
-    }
+    margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 480px) {
-    .Nomination-Results {
-        margin: 0;
+    .nomination-results {
         padding: 8px;
     }
 }

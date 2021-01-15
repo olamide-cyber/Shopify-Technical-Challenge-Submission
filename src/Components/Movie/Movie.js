@@ -2,38 +2,34 @@ import React from 'react';
 import './Movie.css';
 
 
-function Movie(props) {
+const Movie = (props) => {
     const title = props.movie.title;
     const year = props.movie.year;
     const img = props.movie.img;
 
-    function addMovie() {
+    const addMovie = () => {
         let movie = props.movie;
         props.onAdd(movie);
     }
 
-    function removeMovie() {
+    const removeMovie = () => {
         let movie = props.movie;
         props.onRemove(movie);
     }
 
-    function renderAction() {
+    const renderAction = () => {
         if (props.isRemoval) {
-            return <button className="Movie-action" onClick={removeMovie}>Remove</button>;
+            return <button className="movie-action" onClick={removeMovie}>Remove</button>;
         } else {
-            return <button disabled={props.disabled} className="Movie-action" onClick={addMovie}>Nominate</button>;
+            return <button disabled={props.disabled} className="movie-action" onClick={addMovie}>Nominate</button>;
         }
     }
 
     return(
-        <div className="Movie">
-            <div className="Movie-results">
-                <img className="Movie-image" src={img} alt="movie-img" />
-                <ul>
-                    <li>{title} ({year})</li>
-                </ul>
-                {renderAction()}
-            </div>
+        <div className="movie">
+            <img className="movie-image" src={img} alt={title} />
+            <p>{title} ({year})</p>
+            {renderAction()}
         </div>
     );
 };

@@ -4,21 +4,20 @@ import Spinner from '../Spinner/Spinner';
 import './SearchResults.css';
 
 
-function SearchResults(props) {
+const SearchResults = (props) => {
     return (
-        <div className="SearchResults">
+        <div className="search-results">
             {
-                props.isSearching ? <Spinner/> : (
-                    <div className="Results">
-                        {
-                            props.searchTerm ? <h2>Results for "{props.searchTerm}"</h2> : <h2>Results</h2>
-                        }
-                        <MovieList
-                            movies={props.searchResults}
-                            onAdd={props.onAdd}
-                            nominatedMovies={props.nominatedMovies}
-                        />
-                    </div>
+                props.searchTerm ? <h2>Results for "{props.searchTerm}"</h2> : <h2>Results</h2>
+            }
+            {props.searchError}
+            {
+                props.isSearching ? (<div className="spinner"><Spinner/></div>) : (
+                    <MovieList
+                        movies={props.searchResults}
+                        onAdd={props.onAdd}
+                        nominatedMovies={props.nominatedMovies}
+                    />
                   )
             }
         </div>
