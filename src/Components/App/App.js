@@ -16,7 +16,6 @@ const App = () => {
 
     const search = (searchTerm) => {
         setSearchTerm(searchTerm);
-        setSearchError(null);
 
         if (!searchTerm) return;
 
@@ -25,6 +24,7 @@ const App = () => {
         Omdb.search(searchTerm).then(searchResults => {
             setSearchResults(searchResults);
             setIsSearchingMovies(false);
+            setSearchError(null);
         }).catch(error => {
             setSearchError(`${error.message} Please search for a valid movie.`);
             setIsSearchingMovies(false);
