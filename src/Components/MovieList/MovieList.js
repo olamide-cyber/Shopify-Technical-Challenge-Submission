@@ -3,10 +3,9 @@ import Movie from '../Movie/Movie';
 import Spinner from '../Spinner/Spinner';
 import './MovieList.css';
 
-
 const MovieList = (props) => {
     return (
-      <div className="movie-list">
+        <div className={`movie-list ${props.className}`}>
             <h2 className="movie-header">{props.title}</h2>
             {props.errorMessage && <p className="error-message">{props.errorMessage}</p>}
             {
@@ -20,11 +19,11 @@ const MovieList = (props) => {
                             nominated={props.nominatedMovies.find(nominatedMovie => nominatedMovie.id === movie.id)}
                             onRemove={props.onRemove}
                             isRemoval={props.isRemoval}
-                        />
+                        />;
                     })
             }
-      </div>
-    )
+        </div>
+    );
 };
 
 export default MovieList;

@@ -9,20 +9,26 @@ const Movie = (props) => {
     const addMovie = () => {
         let movie = props.movie;
         props.onAdd(movie);
-    }
+    };
 
     const removeMovie = () => {
         let movie = props.movie;
         props.onRemove(movie);
-    }
+    };
 
     const renderAction = () => {
         if (props.isRemoval) {
             return <button className="movie-action remove" onClick={removeMovie}>Remove</button>;
         } else {
-            return <button disabled={props.nominated} className="movie-action nominate" onClick={addMovie}>Nominate</button>;
+            return <button
+                disabled={props.nominated}
+                className="movie-action nominate"
+                onClick={addMovie}
+            >
+                Nominate
+            </button>;
         }
-    }
+    };
 
     return(
         <div className="movie">

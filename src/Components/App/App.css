@@ -1,16 +1,16 @@
-.App {
+.app {
   display: flex;
   flex-direction: column;
   height: 100%;
   padding: 20px;
 }
 
-.App-header {
+.app-header {
   font-size: 30px;
   font-weight: bold;
 }
 
-.Grid {
+.grid {
   width: 100%;
   display: grid;
   grid-gap: 20px;
@@ -18,18 +18,17 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
-.App-search-bar {
+.app-search-bar {
   margin-top: 20px;
 }
 
-
 /* Desktop */
 @media (min-width: 768px) {
-  .App {
+  .app {
     padding: 50px;
   }
 
-  .Grid {
+  .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
