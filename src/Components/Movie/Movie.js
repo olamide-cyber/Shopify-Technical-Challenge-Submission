@@ -1,7 +1,6 @@
 import React from 'react';
 import './Movie.css';
 
-
 const Movie = (props) => {
     const title = props.movie.title;
     const year = props.movie.year;
@@ -19,17 +18,19 @@ const Movie = (props) => {
 
     const renderAction = () => {
         if (props.isRemoval) {
-            return <button className="movie-action" onClick={removeMovie}>Remove</button>;
+            return <button className="movie-action remove" onClick={removeMovie}>Remove</button>;
         } else {
-            return <button disabled={props.disabled} className="movie-action" onClick={addMovie}>Nominate</button>;
+            return <button disabled={props.nominated} className="movie-action nominate" onClick={addMovie}>Nominate</button>;
         }
     }
 
     return(
         <div className="movie">
             <img className="movie-image" src={img} alt={title} />
-            <p>{title} ({year})</p>
-            {renderAction()}
+            <div className="movie-title-action">
+                <span>{title} ({year})</span>
+                {renderAction()}
+            </div>
         </div>
     );
 };

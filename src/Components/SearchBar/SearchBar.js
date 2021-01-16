@@ -6,11 +6,11 @@ const SearchBar = (props) => {
 
     const handleTermChange = (event) => {
         props.onSearch(event.target.value);
-      }
-  
+    }
+
     return (
         <div className={`search-bar ${props.className}`}>
-            <h2 className="movie-title">Movie Title</h2>
+        <h2 className="search-title">Movie Title</h2>
             <div className="search-wrapper">
                 <div className="search-input-wrapper">
                     <img src={searchLogo} alt="search-logo" />

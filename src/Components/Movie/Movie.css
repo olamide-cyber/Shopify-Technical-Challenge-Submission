@@ -1,9 +1,13 @@
-.movie p {
-    margin-left: 16px;
-    margin-right: 16px;
+.movie span {
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .movie {
+    height: 200px;
     display: flex;
     align-items: center;
     margin-top: 16px;
@@ -19,10 +23,19 @@
 }
 
 .movie-image {
-    height: 200px;
+    height: 100%;
     width: 150px;
     border-radius: 4px;
     flex-shrink: 0;
+}
+
+.movie-title-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    flex: 1;
+    margin-left: 16px;
 }
 
 .movie-action {
@@ -36,7 +49,7 @@
     color: rgb(255, 255, 255);
     font-weight: 500;
     outline: none;
-    margin-left: auto;
+    word-break: break-all;
 }
 
 .movie-action:hover {
@@ -57,18 +70,3 @@
     color:#464444
 }
 
-@media only screen and (max-width: 480px) {
-    .movie {
-        padding: 8px;
-    }
-
-    .movie-image {
-        width: 100px;
-        height: 120px;
-    }
-
-    .movie-action {
-        padding: 9px 8px;
-        margin-left: 7px;
-    }
-}

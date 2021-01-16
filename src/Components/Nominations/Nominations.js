@@ -1,21 +1,14 @@
 import React from 'react';
-import './Nominations.css';
 import MovieList from '../MovieList/MovieList';
 
-const Nominations = (props) => {
-    return(
-        <div className="nominations">
-            <div className="nomination-results">
-                <h2>Nominations</h2>
-                <MovieList 
-                    movies={props.nominatedMovies}
-                    onRemove={props.onRemove}
-                    isRemoval={true}
-                    nominatedMovies={props.nominatedMovies}
-                />
-            </div>
-        </div>
-    );
-};
-
+const Nominations = (props) => (
+    <MovieList
+            title="Nominations"
+            movies={props.nominatedMovies}
+            onRemove={props.onRemove}
+            isRemoval={true}
+            nominatedMovies={props.nominatedMovies}
+    />
+)
+  
 export default Nominations;

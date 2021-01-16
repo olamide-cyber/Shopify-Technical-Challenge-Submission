@@ -14,13 +14,10 @@ const Omdb = {
             })
             return results;
           }
-          if (jsonResponse.Error === 'Too many results') {
-              return []
-          }
           if (jsonResponse.Error) {
-            throw jsonResponse.Error
+            throw new Error(jsonResponse.Error)
           }
-          throw ('Unknown error, pls try again.')
+          throw new Error('Unknown error, pls try again.')
     }
 };
 

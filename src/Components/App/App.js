@@ -25,8 +25,9 @@ const App = () => {
       setIsSearchingMovies(false);
       setSearchError(null);
     }).catch(error => {
-      setSearchError(`${error} Please search for a valid movie.`);
+      setSearchError(`${error.message} Please search for a valid movie.`);
       setIsSearchingMovies(false);
+      setSearchResults([])
     })
   }
 
